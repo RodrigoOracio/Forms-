@@ -1,0 +1,215 @@
+<html>
+<head>
+<script language="javascript">
+    function processar() {
+        var nomeDaPessoa, cpfDaPessoa,emailDaPessoa, sexoDaPessoa, aluno, pessoa, vac1, vac2, msg, selecao, sugestoes, necessidades, necr, q1, q2, q3, q4, q5, q6, a1, a2, a3, a4, a5, h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11, hobbie;
+        nomeDaPessoa = document.formulario.nome.value;
+        sexoDaPessoa = document.formulario.sexo.value;
+        cpfDaPessoa = document.getElementById("cpf");
+        emailDaPessoa = document.formulario.email.value;
+        aluno = document.getElementById("aluno").checked;
+        sugestoes = document.formulario.sug.value;
+        pessoa = (aluno?"Alun":"Estrangeir");
+        pessoa += (sexoDaPessoa=="F"?"a":"o");
+        selecao = document.formulario.select.value;
+        necessidades = document.formulario.ne.value;
+        q1 = document.formulario.qual1.checked;
+        q2 = document.formulario.qual2.checked;
+        q3 = document.formulario.qual3.checked;
+        q4 = document.formulario.qual4.checked;
+        q5 = document.formulario.qual5.checked;
+        q6 = document.formulario.qual6.checked;
+
+        a1 = document.formulario.area1.checked;
+        a2 = document.formulario.area2.checked;
+        a3 = document.formulario.area3.checked;
+        a4 = document.formulario.area4.checked;
+        a5 = document.formulario.area5.checked;
+
+        h1 = document.formulario.hob1.checked;
+        h2 = document.formulario.hob2.checked;
+        h3 = document.formulario.hob3.checked;
+        h4 = document.formulario.hob4.checked;
+        h5 = document.formulario.hob5.checked;
+        h6 = document.formulario.hob6.checked;
+        h7 = document.formulario.hob7.checked;
+        h8 = document.formulario.hob8.checked;
+        h9 = document.formulario.hob9.checked;
+        h10 = document.formulario.hob10.checked;
+        h11 = document.formulario.hob11.checked;
+
+        msg = "Olá " + (sexoDaPessoa=="F"?"Sra.":"Sr.") + nomeDaPessoa + "<br>" + "CPF: " + cpfDaPessoa.value + "<br> E-mail: " + emailDaPessoa + "<br><br>" + pessoa + "<br>" + "Câmpus do IFSP: " + selecao +
+        "<br><br>Necessidades especiais: " + (necessidades == "S"? "Sim": "Não") + "<br>Quais: <br>" + (q1 == true? "Deficiência visual <br>": "") + (q2 == true? "Deficiência auditiva <br>": "") + (q3 == true? "Deficiência motora <br>": "") + (q4 == true? "Deficiência mental <br>": "") + (q5 == true? "Paralisia cerebral <br>": "") + (q6 == true? "Nenhuma <br>": "") +
+        "<br>Áreas de interesse: <br>" + (a1 == true? "Tecnologia <br>": "") + (a2 == true? "Exatas <br>": "") + (a3 == true? "Humanas <br>": "") + (a4 == true? "Biológicas <br>": "") + (a5 == true? "Educação <br>": "") +
+        "<br>Hobbies: <br>" + (h1 == true? "Jardinagem <br>": "") + (h2 == true? "Artesanato <br>": "") + (h3 == true? "Leitura <br>": "") + (h4 == true? "Escrita <br>": "") + (h5 == true? "Música <br>": "") + (h6 == true? "Pintura <br>": "") + (h7 == true? "Redes Sociais <br>": "") + (h8 == true? "Viagens <br>": "") + (h9 == true? "Séries <br>": "") + (h10 == true? "Academia <br>": "") + (h11 == true? "Outros <br>": "");
+        
+        document.getElementById("destino").innerHTML = msg + "<br> Sugestões: " + "<br>"+ sugestoes;
+
+        const retorno = document.getElementById('tableprin')
+        retorno.style.display = "block";
+        const container = document.getElementById('container')
+        container.style.display = "none";
+    }
+    
+</script>
+<style>
+    @font-face
+{
+    font-family: poppins;
+    src: url('Poppins-Regular.otf') format('opentype');
+}
+
+    *
+    {
+        font-family: poppins;
+    }
+    body
+    {
+        background-color: rgb(44, 41, 54);
+        color:aliceblue;
+        font-family:monospace;
+        font-size: 15pt;
+        justify-content: center;
+    }
+    #container
+    {
+        display:block;
+    }
+    #tableprin
+    {
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #fafafa;
+        border-radius: 15px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        width: 1000px;
+        max-width: 100%;
+        overflow: hidden;
+        display: none;
+        color:black;
+        margin-top: 50px;
+        padding: 20px;
+    }
+    .header
+    {
+        background-color: #eee;
+        padding: 30px;
+        border-radius: 2%;
+    }
+   
+</style>
+
+</head>
+<body>
+<div id="container">
+<form name="formulario">
+
+Digite o CPF da pessoa: <input type="text" id="cpf" /><br><br>
+
+Digite o nome da pessoa: <input type="text" name="nome" size="50" maxlength="50"/><br><br>
+
+Sexo: <br>
+<input type="radio" name="sexo" value="F">Feminino<br>
+<input type="radio" name="sexo" value="M">Masculino<br><br>
+
+Digite o E-mail da pessoa: <input type="text" name="email" /><br><br>
+
+Aluno do IFSP <input type="checkbox" id="aluno"><br><br> 
+
+Câmpus:
+<select name="select">
+    <option value="Nenhum" selected>Nenhum</option>
+    <option value="Araraquara">Câmpus Araraquara</option>
+    <option value="Avançado Fernandópolis">CâmpusAvançado Fernandópolis</option>
+    <option value="Avançado Ilha Solteira">Câmpus Avançado Ilha Solteira</option>
+    <option value="Avançado Jundiaí">Câmpus Avançado Jundiaí</option>
+    <option value="Avançado São Miguel Paulista">Câmpus Avançado São Miguel Paulista</option>
+    <option value="Avançado Tupã">Câmpus Avançado Tupã</option>
+    <option value="Avaré">Câmpus Avaré</option>
+    <option value="Barretos">Câmpus Barretos</option>
+    <option value="Birigui">Câmpus Birigui</option>
+    <option value="Bragança Paulista">Câmpus Bragança Paulista</option>
+    <option value="Campinas">Câmpus Campinas</option>
+    <option value="Campos do Jordão">Câmpus Campos do Jordão</option>
+    <option value="Caraguatatuba">Câmpus Caraguatatuba</option>
+    <option value="Catanduva">Câmpus Catanduva</option>
+    <option value="Cubatão">Câmpus Cubatão</option>
+    <option value="Guarulhos">Câmpus Guarulhos</option>
+    <option value="Hortolândia">Câmpus Hortolândia</option>
+    <option value="Itapetininga">Câmpus Itapetininga</option>
+    <option value="Itaquaquecetuba">Câmpus Itaquaquecetuba</option>
+    <option value="Jacareí">Câmpus Jacareí</option>
+    <option value="Matão">Câmpus Matão</option>
+    <option value="Piracicaba">Câmpus Piracicaba</option>
+    <option value="Pirituba">Câmpus Pirituba</option>
+    <option value="Presidente Epitácio">Câmpus Presidente Epitácio</option>
+    <option value="Registro">Câmpus Registro</option>
+    <option value="Salto">Câmpus Salto</option>
+    <option value="São Carlos">Câmpus São Carlos</option>
+    <option value="São João da Boa Vista">Câmpus São João da Boa Vista</option>
+    <option value="São José dos Campos">Câmpus São José dos Campos</option>
+    <option value="São Paulo">Câmpus São Paulo</option>
+    <option value="São Roque">Câmpus São Roque</option>
+    <option value="Sertãozinho">Câmpus Sertãozinho</option>
+    <option value="Sorocaba">Câmpus Sorocaba</option>
+    <option value="Suzano">Câmpus Suzano</option>
+    <option value="Votuporanga">Câmpus Votuporanga</option>
+</select><br><br>
+
+Necessidades especiais: <br>
+<input type="radio" name="ne" value="S">Sim<br>
+<input type="radio" name="ne" value="N">Não<br><br>
+
+Quais: <br>
+<input type="checkbox" name ="qual1" value="q1">Deficiência visual<br>
+<input type="checkbox" name ="qual2" value="q2">Deficiência auditiva<br>
+<input type="checkbox" name ="qual3" value="q3">Deficiência motora<br>
+<input type="checkbox" name ="qual4" value="q4">Deficiência mental<br>
+<input type="checkbox" name ="qual5" value="q5">Paralisia cerebral<br>
+<input type="checkbox" name ="qual6" value="q6">Nenhuma<br><br> 
+
+Áreas de Interesse: <br>
+<input type="checkbox" name ="area1" value="a1">Tecnologia<br>
+<input type="checkbox" name ="area2" value="a2">Exatas<br>
+<input type="checkbox" name ="area3" value="a3">Humanas<br>
+<input type="checkbox" name ="area4" value="a4">Biológicas<br>
+<input type="checkbox" name ="area5" value="a5">Educação<br><br>
+
+Hobbies: <br>
+<input type="checkbox" name ="hob1" value="h1">Jardinagem<br>
+<input type="checkbox" name ="hob2" value="h2">Artesanato<br>
+<input type="checkbox" name ="hob3" value="h3">Leitura<br>
+<input type="checkbox" name ="hob4" value="h4">Escrita<br>
+<input type="checkbox" name ="hob5" value="h5">Música<br>
+<input type="checkbox" name ="hob6" value="h6">Pintura<br>
+<input type="checkbox" name ="hob7" value="h7">Redes Sociais<br>
+<input type="checkbox" name ="hob8" value="h8">Viagens<br>
+<input type="checkbox" name ="hob9" value="h9">Séries<br>
+<input type="checkbox" name ="hob10" value="h10">Academia<br>
+<input type="checkbox" name ="hob11" value="h11">Outros<br><br>
+
+Sugestões:<br>
+<textarea name="sug" rows="5" cols="50">Digite aqui suas sugestões</textarea><br><br>
+
+<input value="OK" type="button" onclick="processar();">
+
+<br><br><br>
+
+</form>
+</div>
+
+
+
+<div id="tableprin">
+    <div class="header">Formulário</div>
+    <p id="destino"></p>
+</div>
+
+
+<table>
+
+</table>
+
+
+</body>
+</html>
